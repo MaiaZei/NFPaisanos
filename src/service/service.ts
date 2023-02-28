@@ -3,12 +3,7 @@ import Api from './Api';
 export default {
   async getEthPrice() {
     console.log('estoy en getEthPrice service');
-    var response = await Api().get('/nfpaisanos/eth-price', {
-      proxy: {
-        host: 'http://challenges.us-east-1.elasticbeanstalk.com',
-        port: 80,
-      },
-    });
+    var response = await Api().get('/nfpaisanos/aunctions');
     console.log(response, 'response estoy en getEthPrice service');
     return response.data;
   },

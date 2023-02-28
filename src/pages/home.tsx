@@ -7,6 +7,8 @@ import {
 import Aunctions from '../components/Aunctions/Aunctions';
 import Popular from '../components/Popular/Popular';
 import { HomeContainer } from '../styles/styles';
+import Filters from '../components/Filters/Filters';
+import { AunctionsContainer } from './styles';
 
 const home: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -573,7 +575,7 @@ const home: React.FC = () => {
   const { data, pending, error } = useAppSelector(aunctionsSelector);
   console.log(data, pending, error, 'data, pending, error');
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
-  const [orderBy, setOrderBy] = useState<string>('newest');
+  const [orderBy, setOrderBy] = useState<string>('Newest');
   const prices = aunctions.map((aunction) => {
     return parseFloat(
       aunction.instantPrice.substring(
@@ -602,62 +604,35 @@ const home: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    dispatch(getAunctions());
+  }, []);
   return (
     <HomeContainer>
       <button type="button" onClick={() => onClickLogin()}>
         Click me
       </button>
+      <a href="/login">Login</a>
       <Popular popular={popular} />
-      <button
-        className={
-          showDropDown ? 'buttonDropdown active ' : 'buttonDropdown'
-        }
-        onClick={(): void => toggleDropDown()}
-        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-          dismissHandler(e)
-        }
-      >
-        <div>{orderBy} </div>
-        {showDropDown && (
-          <>
-            <p
-              key="newest"
-              onClick={(): void => {
-                onSelectOrderBy('newest');
-              }}
-            >
-              Newest
-            </p>
-            <p
-              key="oldest"
-              onClick={(): void => {
-                onSelectOrderBy('oldest');
-              }}
-            >
-              Oldest
-            </p>
-          </>
-        )}
-      </button>
-      <input
-        type="range"
-        min={minPrice}
-        max={maxPrice}
-        step="0.001"
-        name="price range"
-        id="price-range"
-        value={priceRange}
-        onChange={(e) => {
-          setPriceRange(Number(e.target.value));
-        }}
-      />
-      <label htmlFor="price range">Price Range</label>
-      <Aunctions
-        aunctions={aunctions}
-        sortBy={orderBy}
-        priceRange={priceRange}
-        filterByType="Art"
-      />
+      <AunctionsContainer>
+        <Filters
+          maxPrice={maxPrice}
+          minPrice={minPrice}
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
+          showDropDown={showDropDown}
+          toggleDropDown={toggleDropDown}
+          dismissHandler={dismissHandler}
+          onSelectOrderBy={onSelectOrderBy}
+          orderBy={orderBy}
+        ></Filters>
+        <Aunctions
+          aunctions={aunctions}
+          sortBy={orderBy}
+          priceRange={priceRange}
+          filterByType="Art"
+        />
+      </AunctionsContainer>
     </HomeContainer>
   );
 };

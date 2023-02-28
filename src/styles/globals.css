@@ -187,3 +187,118 @@ nav {
     width: 100%;
   }
 }
+
+.triangle-range-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+.triangle-range-left-slider {
+  background: url('./assets/Base.svg');
+
+  height: 16px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 16px;
+  z-index: 1;
+  position: absolute;
+  margin-top: -16px;
+}
+
+.triangle-range-background-slider {
+  position: relative;
+  display: block;
+  height: 16px;
+  padding: 0%;
+  margin-top: -8px;
+  z-index: 2;
+}
+/* Input to work with triangle */
+input[type='range'] {
+  position: relative;
+  z-index: 3;
+}
+
+/* Hide */
+input[type='range'] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type='range']:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+/* Thumb */
+/* Special styling for WebKit/Blink */
+input[type='range']::-webkit-slider-thumb {
+  box-sizing: border-box;
+
+  width: 24px;
+  height: 24px;
+  z-index: 4;
+  /* Primary/1 */
+
+  background: #3772ff;
+  /* Neutrals/8 */
+
+  border: 4px solid #fcfcfd;
+  /* depth/1 */
+
+  box-shadow: 0px 8px 16px -8px rgba(15, 15, 15, 0.2);
+  border-radius: 24px;
+}
+
+/* All the same stuff for Firefox */
+input[type='range']::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type='range']::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 10px;
+  -webkit-appearance: none;
+  color: #13bba4;
+  margin-top: -1px;
+}
+
+input[type='range']::-moz-range-track {
+  height: 10px;
+  -webkit-appearance: none;
+  color: #13bba4;
+  margin-top: -1px;
+}

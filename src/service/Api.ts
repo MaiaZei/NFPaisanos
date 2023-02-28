@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export default () => {
   return axios.create({
-    baseURL: 'http://challenges.us-east-1.elasticbeanstalk.com',
+    baseURL: 'http://localhost:3000',
     headers: {
       KEY: 'apiKey',
-      VALUE: 'UJc54fYJlsHJ8w71AuPiouTLW1m3TxmylFZeXdSvuAI=',
+      VALUE: 'aZmoOYPTSUCSdHzGhAZ4dP2SuUQ11DHZ7lwZBzHOb5o=',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',
       'Access-Control-Allow-Credentials': 'true',
