@@ -1,4 +1,10 @@
 import { useEffect, useState } from 'react';
+import {
+  Number,
+  NumberContainer,
+  NumberLabel,
+  TimeContent,
+} from './styles';
 
 interface ICountdown {
   days: number;
@@ -60,15 +66,26 @@ const CountDownTimer = ({
   });
 
   return (
-    <div>
-      <div>{`${time.days.toString().padStart(2, '0')}:${time.hours
-        .toString()
-        .padStart(2, '0')}:${time.minutes
-        .toString()
-        .padStart(2, '0')}:${time.seconds
-        .toString()
-        .padStart(2, '0')}`}</div>
-    </div>
+    <NumberContainer>
+      {time.days === 0 ? null : (
+        <TimeContent>
+          <Number>{time.days.toString().padStart(2, '0')}</Number>
+          <NumberLabel>Dias</NumberLabel>
+        </TimeContent>
+      )}
+      <TimeContent>
+        <Number>{time.hours.toString().padStart(2, '0')}</Number>
+        <NumberLabel>Hrs</NumberLabel>
+      </TimeContent>
+      <TimeContent>
+        <Number>{time.minutes.toString().padStart(2, '0')}</Number>
+        <NumberLabel>mins</NumberLabel>
+      </TimeContent>
+      <TimeContent>
+        <Number>{time.seconds.toString().padStart(2, '0')}</Number>
+        <NumberLabel>secs</NumberLabel>
+      </TimeContent>
+    </NumberContainer>
   );
 };
 

@@ -2,9 +2,9 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/nfpaisanos/aunctions',
+        source: '/nfpaisanos/:path',
         destination:
-          'http://challenges.us-east-1.elasticbeanstalk.com/nfpaisanos/aunctions',
+          'http://challenges.us-east-1.elasticbeanstalk.com/nfpaisanos/:path',
       },
     ];
   },

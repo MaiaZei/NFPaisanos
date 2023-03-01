@@ -8,8 +8,6 @@ export const OptionsContainer = styled.div`
   width: 256px;
   border: 1px solid #353945;
   border-radius: 5px;
-  left: 0;
-
   flex-direction: column;
   z-index: 10;
   display: ${(props) => (props.show ? 'flex' : 'none')};
@@ -48,8 +46,7 @@ export const DropdownDiv = styled.div`
 export const DropdownArrow = styled(Image)`
   width: 10px;
   height: 10px;
-  transform: ${(props) =>
-    props.rotate ? 'rotate(0deg)' : 'rotate(-90deg)'};
+  transform: ${(props) => props.rotate};
   transition: transform 300ms ease-in-out;
 `;
 

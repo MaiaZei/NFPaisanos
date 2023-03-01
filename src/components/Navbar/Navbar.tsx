@@ -13,8 +13,11 @@ const Navbar = () => {
   const [activeIdx, setActiveIdx] = useState(-1);
 
   return (
-    <header>
-      <nav className={`nav`}>
+    <header style={{ backgroundColor: 'black' }}>
+      <nav
+        className={`nav`}
+        style={{ maxWidth: '1200px', margin: '0 auto' }}
+      >
         <div className="left-side">
           <Link href={'/'} legacyBehavior>
             <a>

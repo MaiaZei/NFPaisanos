@@ -12,14 +12,13 @@ export const AunctionContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  padding: 20px;
 `;
 
 export const AunctionImage = styled(Image)`
   border-radius: 20px;
-  margin: auto;
-  width: 90%;
+  width: 100%;
   height: auto;
-  margin-top: 20px;
 `;
 
 export const WishlistIcon = styled(Image)`
@@ -37,7 +36,7 @@ export const Type = styled.p`
 `;
 
 export const PlaceBidButton = styled.button`
-  padding: 5px 10px;
+  padding: 0 5px;
   color: #fcfcfd;
   justify-content: center;
   align-items: center;
@@ -64,11 +63,57 @@ export const HoverThings = styled.div`
   left: 10%;
   top: 5%;
   display: none;
-  height: 100%;
-  padding-bottom: 24%;
+  height: 70%;
   ${AunctionContainer}:hover & {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+`;
+
+export const AuctionInstantPrice = styled.div`
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  height: auto;
+  text-transform: uppercase;
+  color: #45b36b;
+  border: 2px solid #45b36b;
+  border-radius: 5px;
+`;
+
+export const AuctionBottomInformationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const RowDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const AuctionTitle = styled.p`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fcfcfd;
+`;
+
+export const StockLabel = styled.p`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #e6e8ec;
+`;
+
+export const BidUsersContainer = styled.div`
+  display: flex;
+  justify-content: left;
+`;
+
+export const BidUserImage = styled(Image)`
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: ${(props) => props.left * -8}px;
 `;

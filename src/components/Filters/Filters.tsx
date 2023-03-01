@@ -34,9 +34,9 @@ const Filters = (props: FiltersProps) => {
     orderBy,
     onSelectOrderBy,
   } = props;
+
   return (
-    <div style={{ width: '256px', margin: '0 40px' }}>
-      <p>FILTROSSSSS</p>
+    <div style={{ width: '256px' }}>
       <DropdownDiv
         rotation={showDropDown}
         onClick={(): void => toggleDropDown()}
@@ -48,7 +48,7 @@ const Filters = (props: FiltersProps) => {
         <ArrowDiv>
           <DropdownArrow
             src={Shape}
-            rotate={showDropDown}
+            rotate={showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'}
             alt="arrow"
           />
         </ArrowDiv>
@@ -114,7 +114,7 @@ const Filters = (props: FiltersProps) => {
         <ArrowDiv>
           <DropdownArrow
             src={Shape}
-            rotate={showDropDown}
+            rotate={showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'}
             alt="arrow"
           />
         </ArrowDiv>
@@ -148,7 +148,7 @@ const Filters = (props: FiltersProps) => {
         <ArrowDiv>
           <DropdownArrow
             src={Shape}
-            rotate={showDropDown}
+            rotate={showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'}
             alt="arrow"
           />
         </ArrowDiv>

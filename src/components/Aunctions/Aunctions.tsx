@@ -1,13 +1,20 @@
 import Image from 'next/image';
 import { AunctionProps } from '../types/AunctionTypes';
 import {
+  AuctionBottomInformationContainer,
+  AuctionInstantPrice,
+  AuctionTitle,
   AunctionContainer,
   AunctionImage,
   AunctionsGrid,
+  BidUserImage,
+  BidUsersContainer,
   HoverThings,
   PlaceBidButton,
   PlaceBidButtonContent,
   PlaceBidButtonText,
+  RowDiv,
+  StockLabel,
   Type,
   WishlistIcon,
 } from './styles';
@@ -26,8 +33,6 @@ type AunctionsProps = {
 const Aunctions = (props: AunctionsProps) => {
   return (
     <div style={{ width: '100%' }}>
-      <p>Aunctions</p>
-
       <AunctionsGrid>
         {props.aunctions
           .sort((a, b) =>
@@ -48,7 +53,7 @@ const Aunctions = (props: AunctionsProps) => {
           )
           .map((aunction) => {
             return (
-              <AunctionContainer>
+              <AunctionContainer key={aunction.id}>
                 <HoverThings>
                   <div
                     style={{
@@ -108,11 +113,33 @@ const Aunctions = (props: AunctionsProps) => {
                   width={300}
                   height={300}
                 />
-                <div>
-                  <p>{aunction.type}</p>
-                  <p>{aunction.author}</p>
-                  <p>{aunction.instantPrice}</p>
-                </div>
+                <AuctionBottomInformationContainer>
+                  <RowDiv>
+                    <AuctionTitle>Amazing digital art</AuctionTitle>
+                    <AuctionInstantPrice>
+                      {aunction.instantPrice}
+                    </AuctionInstantPrice>
+                  </RowDiv>
+                  <RowDiv>
+                    <BidUsersContainer>
+                      {aunction.bidUsers.map((user, index) => {
+                        return (
+                          <BidUserImage
+                            src={user.avatar}
+                            alt={user.id.toString()}
+                            width={24}
+                            height={24}
+                            left={index}
+                          />
+                        );
+                      })}
+                    </BidUsersContainer>
+                    <StockLabel>{aunction.stock} in stock</StockLabel>
+                  </RowDiv>
+
+                  <p>highest Bid: {aunction.highestBid}</p>
+                  <p>New bid</p>
+                </AuctionBottomInformationContainer>
               </AunctionContainer>
             );
           })}
