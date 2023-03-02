@@ -9,7 +9,6 @@ import Aunctions from '../components/Aunctions/Aunctions';
 import Popular from '../components/Popular/Popular';
 import { HomeContainer, HomeWrapper } from '../styles/styles';
 import Filters from '../components/Filters/Filters';
-import { AunctionsContainer } from './styles';
 import Search from '../components/Search/Search';
 import { aunctionsSelector } from '../features/aunctions/selectors';
 
@@ -67,7 +66,7 @@ const home: React.FC = () => {
             ethPrice={ethPrice.toString()}
           />
           <Search></Search>
-          <AunctionsContainer>
+          <div style={{ display: 'flex' }}>
             <Filters
               maxPrice={maxPrice}
               minPrice={minPrice}
@@ -86,7 +85,7 @@ const home: React.FC = () => {
                 filterByType="Art"
               />
             </Filters>
-          </AunctionsContainer>
+          </div>
         </HomeWrapper>
       )}
     </HomeContainer>
