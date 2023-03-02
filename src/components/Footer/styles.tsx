@@ -9,47 +9,72 @@ export const Box = styled.div`
   }
 `;
 
+export const Logo = styled.p`
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #f4f5f6;
+  margin-left: 10px;
+  margin-bottom: 10px;
+`;
+
+export const Text = styled.p`
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: -0.01em;
+  color: #e6e8ec;
+  margin-bottom: 50px;
+`;
+
+export const CreatedText = styled.div`
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #777e91;
+  display: flex;
+`;
+
+export const Line = styled.hr`
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  border-color: #353945;
+  margin-bottom: 32px;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
+  height: 300px;
+
+  border-top: 1px solid #353945;
   /* background: red; */
 `;
 
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: left;
-  margin-left: 60px;
+  text-align: center;
 `;
 
 export const Row = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
   @media (max-width: 1000px) {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 `;
 
-export const FooterLink = styled.a`
-  color: #fff;
-  margin-bottom: 20px;
-  font-size: 18px;
-  text-decoration: none;
-
-  &:hover {
-    color: green;
-    transition: 200ms ease-in;
-  }
-`;
-
-export const Heading = styled.p`
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 40px;
-  font-weight: bold;
+export const Heart = styled.div`
+  color: red;
+  margin: 0 5px;
 `;

@@ -20,6 +20,7 @@ type FiltersProps = {
   dismissHandler: (e: React.FocusEvent<HTMLButtonElement>) => void;
   orderBy: string;
   onSelectOrderBy: (orderBy: string) => void;
+  children?: React.ReactNode;
 };
 
 const Filters = (props: FiltersProps) => {
@@ -36,141 +37,153 @@ const Filters = (props: FiltersProps) => {
   } = props;
 
   return (
-    <div style={{ width: '256px' }}>
-      <DropdownDiv
-        rotation={showDropDown}
-        onClick={(): void => toggleDropDown()}
-        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-          dismissHandler(e)
-        }
-      >
-        <Dropdown>{orderBy}</Dropdown>
-        <ArrowDiv>
-          <DropdownArrow
-            src={Shape}
-            rotate={showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'}
-            alt="arrow"
-          />
-        </ArrowDiv>
-      </DropdownDiv>
-      <OptionsContainer show={showDropDown}>
-        <Option
-          onClick={(): void => {
-            onSelectOrderBy('Newest');
-          }}
-          show={showDropDown}
+    <div style={{ display: 'flex' }}>
+      <div style={{ width: '256px' }}>
+        <DropdownDiv
+          rotation={showDropDown}
+          onClick={(): void => toggleDropDown()}
+          onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+            dismissHandler(e)
+          }
         >
-          Newest
-        </Option>
-        <Option
-          onClick={(): void => {
-            onSelectOrderBy('Oldest');
-          }}
-          show={showDropDown}
-        >
-          Oldest
-        </Option>
-      </OptionsContainer>
+          <Dropdown>{orderBy}</Dropdown>
+          <ArrowDiv>
+            <DropdownArrow
+              src={Shape}
+              rotate={
+                showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'
+              }
+              alt="arrow"
+            />
+          </ArrowDiv>
+        </DropdownDiv>
+        <OptionsContainer show={showDropDown}>
+          <Option
+            onClick={(): void => {
+              onSelectOrderBy('Newest');
+            }}
+            show={showDropDown}
+          >
+            Newest
+          </Option>
+          <Option
+            onClick={(): void => {
+              onSelectOrderBy('Oldest');
+            }}
+            show={showDropDown}
+          >
+            Oldest
+          </Option>
+        </OptionsContainer>
 
-      <div
-        style={{
-          position: 'relative',
-          width: '100%',
-          marginTop: '20px',
-        }}
-      >
-        <input
-          type="range"
-          min={minPrice}
-          max={maxPrice}
-          step="0.001"
-          name="price range"
-          id="price-range"
-          value={priceRange}
-          onChange={(e) => {
-            setPriceRange(Number(e.target.value));
+        <div
+          style={{
+            position: 'relative',
+            width: '100%',
+            marginTop: '20px',
           }}
-          className="triangle-range-slider"
-        />
-        <div className="triangle-range-background-slider">
-          <Image
-            src={Fill}
-            alt="Fill"
-            width={(priceRange * 256) / maxPrice}
-            height={16}
-          ></Image>
+        >
+          <input
+            type="range"
+            min={minPrice}
+            max={maxPrice}
+            step="0.001"
+            name="price range"
+            id="price-range"
+            value={priceRange}
+            onChange={(e) => {
+              setPriceRange(Number(e.target.value));
+            }}
+            className="triangle-range-slider"
+          />
+          <div className="triangle-range-background-slider">
+            <Image
+              src={Fill}
+              alt="Fill"
+              width={(priceRange * 256) / maxPrice}
+              height={16}
+            ></Image>
+          </div>
+          <div className="triangle-range-left-slider"></div>
         </div>
-        <div className="triangle-range-left-slider"></div>
+        <label htmlFor="price range">Price Range</label>
+        <DropdownDiv
+          rotation={showDropDown}
+          onClick={(): void => toggleDropDown()}
+          onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+            dismissHandler(e)
+          }
+        >
+          <Dropdown>{orderBy}</Dropdown>
+          <ArrowDiv>
+            <DropdownArrow
+              src={Shape}
+              rotate={
+                showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'
+              }
+              alt="arrow"
+            />
+          </ArrowDiv>
+        </DropdownDiv>
+        <OptionsContainer show={false}>
+          <Option
+            onClick={(): void => {
+              onSelectOrderBy('Newest');
+            }}
+            show={showDropDown}
+          >
+            Most Liked
+          </Option>
+          <Option
+            onClick={(): void => {
+              onSelectOrderBy('Oldest');
+            }}
+            show={showDropDown}
+          >
+            Least Liked
+          </Option>
+        </OptionsContainer>
+        <DropdownDiv
+          rotation={showDropDown}
+          onClick={(): void => toggleDropDown()}
+          onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
+            dismissHandler(e)
+          }
+        >
+          <Dropdown>{orderBy}</Dropdown>
+          <ArrowDiv>
+            <DropdownArrow
+              src={Shape}
+              rotate={
+                showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'
+              }
+              alt="arrow"
+            />
+          </ArrowDiv>
+        </DropdownDiv>
+        <OptionsContainer show={false}>
+          <Option
+            onClick={(): void => {
+              onSelectOrderBy('Newest');
+            }}
+            show={showDropDown}
+          >
+            Colors
+          </Option>
+          <Option
+            onClick={(): void => {
+              onSelectOrderBy('Oldest');
+            }}
+            show={showDropDown}
+          >
+            Colors
+          </Option>
+        </OptionsContainer>
       </div>
-      <label htmlFor="price range">Price Range</label>
-      <DropdownDiv
-        rotation={showDropDown}
-        onClick={(): void => toggleDropDown()}
-        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-          dismissHandler(e)
-        }
-      >
-        <Dropdown>{orderBy}</Dropdown>
-        <ArrowDiv>
-          <DropdownArrow
-            src={Shape}
-            rotate={showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'}
-            alt="arrow"
-          />
-        </ArrowDiv>
-      </DropdownDiv>
-      <OptionsContainer show={false}>
-        <Option
-          onClick={(): void => {
-            onSelectOrderBy('Newest');
-          }}
-          show={showDropDown}
-        >
-          Most Liked
-        </Option>
-        <Option
-          onClick={(): void => {
-            onSelectOrderBy('Oldest');
-          }}
-          show={showDropDown}
-        >
-          Least Liked
-        </Option>
-      </OptionsContainer>
-      <DropdownDiv
-        rotation={showDropDown}
-        onClick={(): void => toggleDropDown()}
-        onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-          dismissHandler(e)
-        }
-      >
-        <Dropdown>{orderBy}</Dropdown>
-        <ArrowDiv>
-          <DropdownArrow
-            src={Shape}
-            rotate={showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'}
-            alt="arrow"
-          />
-        </ArrowDiv>
-      </DropdownDiv>
-      <OptionsContainer show={false}>
-        <Option
-          onClick={(): void => {
-            onSelectOrderBy('Newest');
-          }}
-          show={showDropDown}
-        >
-          Colors
-        </Option>
-        <Option
-          onClick={(): void => {
-            onSelectOrderBy('Oldest');
-          }}
-          show={showDropDown}
-        >
-          Colors
-        </Option>
-      </OptionsContainer>
+      <div style={{ height: 'fit-content' }}>
+        <p>filter by type</p>
+        {props?.children}
+      </div>
     </div>
   );
 };

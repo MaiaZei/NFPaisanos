@@ -11,6 +11,7 @@ import Popular from '../components/Popular/Popular';
 import { HomeContainer, HomeWrapper } from '../styles/styles';
 import Filters from '../components/Filters/Filters';
 import { AunctionsContainer } from './styles';
+import Search from '../components/Search/Search';
 
 const home: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -59,12 +60,13 @@ const home: React.FC = () => {
 
   return (
     <HomeContainer>
-      {auctions.length !== 0 && (
+      {auctions.length !== 0 && popular.length !== 0 && (
         <HomeWrapper>
           <Popular
             popular={[...popular]}
             ethPrice={ethPrice.toString()}
           />
+          <Search></Search>
           <AunctionsContainer>
             <Filters
               maxPrice={maxPrice}
@@ -76,13 +78,14 @@ const home: React.FC = () => {
               dismissHandler={dismissHandler}
               onSelectOrderBy={onSelectOrderBy}
               orderBy={orderBy}
-            ></Filters>
-            <Aunctions
-              aunctions={[...aunctions]}
-              sortBy={orderBy}
-              priceRange={priceRange}
-              filterByType="Art"
-            />
+            >
+              <Aunctions
+                aunctions={[...aunctions]}
+                sortBy={orderBy}
+                priceRange={priceRange}
+                filterByType="Art"
+              />
+            </Filters>
           </AunctionsContainer>
         </HomeWrapper>
       )}

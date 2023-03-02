@@ -114,7 +114,7 @@ const Popular = (props: AunctionsProps) => {
   };
 
   return (
-    <PopularContainer key={props.popular[aunctionShowing].id}>
+    <PopularContainer key={props.popular[aunctionShowing]?.id}>
       <PopularImage
         src={JonTyson}
         alt="jon tyson"
@@ -126,7 +126,7 @@ const Popular = (props: AunctionsProps) => {
         <TopDiv>the creator network</TopDiv>
         <AnimatePresence>
           <motion.div
-            key={props.popular[aunctionShowing].id}
+            key={props.popular[aunctionShowing]?.id}
             custom={direction}
             variants={variants}
             initial="enter"
