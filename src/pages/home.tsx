@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import {
-  aunctionsSelector,
   getAunctions,
   getEthPrice,
   getPopulars,
@@ -12,6 +11,7 @@ import { HomeContainer, HomeWrapper } from '../styles/styles';
 import Filters from '../components/Filters/Filters';
 import { AunctionsContainer } from './styles';
 import Search from '../components/Search/Search';
+import { aunctionsSelector } from '../features/aunctions/selectors';
 
 const home: React.FC = () => {
   const dispatch = useAppDispatch();
