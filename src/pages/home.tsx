@@ -25,9 +25,17 @@ const home: React.FC = () => {
   const { aunctions, popular, ethPrice, pending, error } =
     useAppSelector(aunctionsSelector);
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
+
+  const [showDropDownColors, setShowDropDownColors] =
+    useState<boolean>(false);
   const [orderBy, setOrderBy] = useState<string>('Newest');
   const [auctions, setAuctions] = useState([]);
   const [priceRange, setPriceRange] = useState<number>(0);
+  const [colorsSelected, setColorsSelected] = useState<string[]>([]);
+  const [showDropDownLikes, setShowDropDownLikes] =
+    useState<boolean>(false);
+  const [filterByType, setFilterByType] =
+    useState<string>('All items');
   const prices = aunctions.map((auction) =>
     parseFloat(auction.instantPrice)
   );
@@ -48,6 +56,8 @@ const home: React.FC = () => {
 
   const toggleDropDown = (): void => {
     setShowDropDown(!showDropDown);
+    setShowDropDownColors(false);
+    setShowDropDownLikes(false);
   };
   const dismissHandler = (
     event: React.FocusEvent<HTMLButtonElement>
@@ -73,16 +83,27 @@ const home: React.FC = () => {
               priceRange={priceRange}
               setPriceRange={setPriceRange}
               showDropDown={showDropDown}
-              toggleDropDown={toggleDropDown}
+              toggleDropDown={setShowDropDown}
               dismissHandler={dismissHandler}
               onSelectOrderBy={onSelectOrderBy}
               orderBy={orderBy}
+              filterByType={filterByType}
+              setFilterByType={setFilterByType}
+              colors={aunctions.map((auction) => {
+                return auction.attributes.color;
+              })}
+              setColorsSelected={setColorsSelected}
+              colorsSelected={colorsSelected}
+              showDropDownColors={showDropDownColors}
+              setShowDropDownColors={setShowDropDownColors}
+              showDropDownLikes={showDropDownLikes}
+              setShowDropDownLikes={setShowDropDownLikes}
             >
               <Aunctions
                 aunctions={[...aunctions]}
                 sortBy={orderBy}
                 priceRange={priceRange}
-                filterByType="Art"
+                filterByType={filterByType}
               />
             </Filters>
           </div>

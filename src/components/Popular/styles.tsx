@@ -12,12 +12,22 @@ export const PopularContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 32px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
 `;
 
 export const PopularInformation = styled.div`
   display: flex;
   flex-direction: column;
   width: 35%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Creator = styled.div`
@@ -132,6 +142,10 @@ export const PopularImage = styled(Image)`
   width: 50%;
   height: auto;
   border-radius: 20px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const CurrentBidNumber = styled.div`

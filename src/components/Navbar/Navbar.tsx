@@ -31,7 +31,6 @@ const Navbar = () => {
           >
             <div></div>
             <div></div>
-            <div></div>
           </div>
           <div
             className={`${navActive ? 'active' : ''} nav__menu-list`}
@@ -48,12 +47,10 @@ const Navbar = () => {
                 <NavItem active={activeIdx === idx} {...menu} />
               </div>
             ))}
+            <Link href={'/'} legacyBehavior>
+              <a className="connectButton">Connect wallet</a>
+            </Link>
           </div>
-        </div>
-        <div className="right-side">
-          <Link href={'/'} legacyBehavior>
-            <a className="connectButton">Connect wallet</a>
-          </Link>
         </div>
       </nav>
     </header>

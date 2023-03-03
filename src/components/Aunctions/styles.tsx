@@ -4,7 +4,15 @@ import styled from 'styled-components';
 export const AunctionsGrid = styled.div`
   display: grid;
   grid-template-columns: 30% 30% 30%;
-  grid-gap: 20px;
+  grid-gap: 2% 5%;
+  margin-left: 5%;
+  padding-bottom: 50px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 100%;
+    grid-gap: 0;
+    margin-left: 0;
+  }
 `;
 export const AunctionContainer = styled.div`
   border-radius: 20px;

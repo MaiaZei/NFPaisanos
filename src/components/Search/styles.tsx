@@ -39,6 +39,11 @@ export const SearchContainer = styled.div`
   height: 70px;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    width: 80%;
+    margin: 20px auto;
+  }
 `;
 
 export const Icon = styled(Image)`

@@ -51,6 +51,11 @@ const Aunctions = (props: AunctionsProps) => {
                 )
               ) <= props.priceRange
           )
+          .filter((aunction) =>
+            props.filterByType !== 'All items'
+              ? aunction.type === props.filterByType
+              : true
+          )
           .map((aunction) => {
             return (
               <AunctionContainer key={aunction.id}>
