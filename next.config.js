@@ -9,6 +9,7 @@ module.exports = {
     ];
   },
   images: {
+    domanins: ['http://challenges.us-east-1.elasticbeanstalk.com'],
     remotePatterns: [
       {
         protocol: 'https',
