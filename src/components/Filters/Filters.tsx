@@ -112,7 +112,7 @@ const Filters = (props: FiltersProps) => {
             margin: '0 auto',
           }}
         >
-          <label htmlFor="price range">Price Range</label>
+          <label htmlFor="price-range">Price Range</label>
 
           <div
             style={{
@@ -127,7 +127,7 @@ const Filters = (props: FiltersProps) => {
               min={minPrice}
               max={maxPrice}
               step="0.001"
-              name="price range"
+              name="price-range"
               id="price-range"
               value={priceRange}
               onChange={(e) => {

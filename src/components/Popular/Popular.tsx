@@ -126,18 +126,18 @@ const Popular = (props: AunctionsProps) => {
               parseFloat(props.popular[aunctionShowing]?.highestBid)}
           </CurrentBidUsd>
           <AuctionEnding>Auction ending in </AuctionEnding>
-          {endingTime.days <= 0 &&
-          endingTime.hours <= 0 &&
-          endingTime.minutes <= 0 &&
-          endingTime.seconds <= 0 ? (
-            <EndedLabel>This auction has ended</EndedLabel>
-          ) : (
+          {endingTime.days > 0 &&
+          endingTime.hours > 0 &&
+          endingTime.minutes > 0 &&
+          endingTime.seconds > 0 ? (
             <CountDownTimer
-              days={endingTime.days}
-              hours={endingTime.hours}
-              minutes={endingTime.minutes}
-              seconds={endingTime.seconds}
+              days={endingTime.days || 0}
+              hours={endingTime.hours || 0}
+              minutes={endingTime.minutes || 0}
+              seconds={endingTime.seconds || 0}
             />
+          ) : (
+            <EndedLabel>This auction has ended</EndedLabel>
           )}
         </BidContainer>
         <PlaceBidButton>Place a bid</PlaceBidButton>
