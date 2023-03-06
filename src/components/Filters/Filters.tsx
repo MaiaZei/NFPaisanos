@@ -65,7 +65,7 @@ const Filters = (props: FiltersProps) => {
   const changeTypeFilter = (filter: string): void => {
     setFilterByType(filter);
   };
-  const coloresUnicos = [];
+  const coloresUnicos = [colors[0]];
   colors.forEach((color) => {
     if (!coloresUnicos.includes(color)) {
       coloresUnicos.push(color);
