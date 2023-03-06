@@ -71,7 +71,7 @@ const home: React.FC = () => {
         <title>NFPaisanosMaia</title>
         <meta name="black"></meta>
       </Head>
-      <HomeContainer>
+      <HomeContainer lang="en">
         <HomeWrapper>
           <Popular
             popular={[...popular]}
