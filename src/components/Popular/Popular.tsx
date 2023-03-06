@@ -74,7 +74,13 @@ const Popular = (props: AunctionsProps) => {
 
   return (
     <PopularContainer key={props.popular[aunctionShowing]?.id}>
-      <div style={{ margin: '600px' }}></div>
+      <PopularImage
+        src={JonTyson}
+        alt="jon tyson"
+        width={300}
+        height={300}
+        priority
+      />
 
       <PopularInformation>
         <TopDiv>the creator network</TopDiv>
