@@ -74,7 +74,18 @@ const home: React.FC = () => {
     <HomeContainer>
       <meta name="black"></meta>
       <link rel="apple-touch-icon" href={Logo}></link>
-      <link rel="preload" as="font"></link>
+      <link
+        rel="preconnect"
+        href="http://localhost:3000/nfpaisanos/eth-price"
+      ></link>
+      <link
+        rel="preconnect"
+        href="http://localhost:3000/nfpaisanos/popular"
+      ></link>
+      <link
+        rel="preconnect"
+        href="http://localhost:3000/nfpaisanos/aunctions"
+      ></link>
       {auctions.length !== 0 && popular.length !== 0 ? (
         <HomeWrapper>
           <Popular

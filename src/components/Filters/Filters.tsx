@@ -17,7 +17,6 @@ import {
 } from './styles';
 import Fill from '../../styles/assets/Fill.svg';
 import Shape from './assets/Shape.svg';
-import Base from '../../styles/assets/Base.svg';
 
 type FiltersProps = {
   priceRange: number;
@@ -174,6 +173,8 @@ const Filters = (props: FiltersProps) => {
                       ? 'rotate(0deg)'
                       : 'rotate(-90deg)'
                   }
+                  width={10}
+                  height={10}
                   alt="arrow"
                 />
               </ArrowDiv>
@@ -185,6 +186,7 @@ const Filters = (props: FiltersProps) => {
               {coloresUnicos.map((color) => {
                 return (
                   <Option
+                    key={color}
                     onClick={(): void => {
                       toggleDropDown({
                         showDropDown: false,

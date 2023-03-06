@@ -18,7 +18,7 @@ export const OptionsContainer = styled.div`
   }
 `;
 
-export const Option = styled.p`
+export const Option = styled.div`
   color: #fcfcfd;
   font-size: 14px;
   line-height: 24px;

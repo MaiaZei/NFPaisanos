@@ -133,6 +133,7 @@ const Aunctions = (props: AunctionsProps) => {
                       {aunction.bidUsers.map((user, index) => {
                         return (
                           <BidUserImage
+                            key={user.id}
                             src={user.avatar}
                             alt={user.id.toString()}
                             width={24}

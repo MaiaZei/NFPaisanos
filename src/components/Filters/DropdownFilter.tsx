@@ -36,6 +36,8 @@ const DropdownFilter = ({
         <ArrowDiv>
           <DropdownArrow
             src={Shape}
+            width={10}
+            height={10}
             rotate={showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'}
             alt="arrow"
           />
@@ -45,6 +47,7 @@ const DropdownFilter = ({
         {options.map((option) => {
           return (
             <Option
+              key={option}
               onClick={(): void => {
                 onChange(option);
               }}
