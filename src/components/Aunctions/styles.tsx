@@ -71,6 +71,9 @@ export const PlaceBidButtonContent = styled.div`
 
 export const PlaceBidButtonText = styled.p`
   margin-right: 10px;
+  :focus {
+    outline: 0;
+  }
 `;
 
 export const HoverThings = styled.div`

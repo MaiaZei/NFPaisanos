@@ -90,6 +90,10 @@ export const PlaceBidButton = styled.button`
   margin-top: 16px;
   cursor: pointer;
   margin-top: 40px;
+
+  &:focus {
+    outline: 0;
+  }
 `;
 
 export const ViewItemButton = styled.button`

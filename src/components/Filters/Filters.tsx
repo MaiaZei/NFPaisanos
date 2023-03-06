@@ -208,7 +208,7 @@ const Filters = (props: FiltersProps) => {
             </OptionsContainer>
           </div>
         </div>
-        <div>{props.children}</div>
+        <div>{props.children && props.children}</div>
       </BottomFiltersContainer>
     </FiltersContainer>
   );

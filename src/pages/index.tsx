@@ -12,13 +12,14 @@ import Search from '../components/Search/Search';
 import { aunctionsSelector } from '../features/aunctions/selectors';
 import Filters from '../components/Filters/Filters';
 import Logo from '../components/Navbar/assets/logo.svg';
+import Head from 'next/head';
 
 const home: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getAunctions());
     dispatch(getPopulars());
+    dispatch(getAunctions());
     dispatch(getEthPrice());
   }, []);
   const { aunctions, popular, ethPrice, pending, error } =
@@ -71,27 +72,30 @@ const home: React.FC = () => {
   };
 
   return (
-    <HomeContainer>
-      <meta name="black"></meta>
-      <link rel="apple-touch-icon" href={Logo}></link>
-      <link
-        rel="preconnect"
-        href="http://localhost:3000/nfpaisanos/eth-price"
-      ></link>
-      <link
-        rel="preconnect"
-        href="http://localhost:3000/nfpaisanos/popular"
-      ></link>
-      <link
-        rel="preconnect"
-        href="http://localhost:3000/nfpaisanos/aunctions"
-      ></link>
-      {auctions.length !== 0 && popular.length !== 0 ? (
+    <>
+      <Head>
+        <meta name="black"></meta>
+        <link rel="apple-touch-icon" href={Logo}></link>
+        <link
+          rel="preconnect"
+          href="http://localhost:3000/nfpaisanos/eth-price"
+        ></link>
+        <link
+          rel="preconnect"
+          href="http://localhost:3000/nfpaisanos/popular"
+        ></link>
+        <link
+          rel="preconnect"
+          href="http://localhost:3000/nfpaisanos/aunctions"
+        ></link>
+      </Head>
+      <HomeContainer>
         <HomeWrapper>
           <Popular
             popular={[...popular]}
             ethPrice={ethPrice.toString()}
           />
+
           <Search></Search>
           <div style={{ display: 'flex' }}>
             <Filters
@@ -123,18 +127,8 @@ const home: React.FC = () => {
             </Filters>
           </div>
         </HomeWrapper>
-      ) : (
-        <div
-          style={{
-            margin: 'auto',
-            width: 'fit-content',
-            padding: '20px',
-          }}
-        >
-          <p>Loading...</p>
-        </div>
-      )}
-    </HomeContainer>
+      </HomeContainer>
+    </>
   );
 };
 
