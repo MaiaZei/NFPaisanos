@@ -12,6 +12,7 @@ import Search from '../components/Search/Search';
 import { aunctionsSelector } from '../features/aunctions/selectors';
 import Filters from '../components/Filters/Filters';
 import Head from 'next/head';
+import Logo from '../components/Navbar/assets/logo.svg';
 
 const home: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -70,6 +71,7 @@ const home: React.FC = () => {
       <Head>
         <meta name="black"></meta>
         <title>NFPaisanosMaia</title>
+        <link rel="apple-touch-icon" href={Logo}></link>
       </Head>
       <HomeContainer>
         <HomeWrapper>
