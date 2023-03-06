@@ -30,7 +30,9 @@ const home: React.FC = () => {
   const [orderBy, setOrderBy] = useState<string>('Newest');
   const [auctions, setAuctions] = useState([]);
   const [priceRange, setPriceRange] = useState<number>(0);
-  const [colorsSelected, setColorsSelected] = useState<string[]>([]);
+  const [colorsSelected] = useState<string[]>([]);
+  const [likesSelected, setLikesSelected] =
+    useState<string>('Most Liked');
   const [showDropDownLikes, setShowDropDownLikes] =
     useState<boolean>(false);
   const [filterByType, setFilterByType] =
@@ -62,12 +64,10 @@ const home: React.FC = () => {
     setShowDropDownColors(showDropDownColors);
     setShowDropDownLikes(showDropDownLikes);
   };
-  const dismissHandler = (
-    event: React.FocusEvent<HTMLButtonElement>
-  ): void => {
-    if (event.currentTarget === event.target) {
-      setShowDropDown(false);
-    }
+
+  const setOrderLikes = (likesSelected: string): void => {
+    setLikesSelected(likesSelected);
+    setShowDropDownLikes(!showDropDownLikes);
   };
 
   return (
@@ -89,7 +89,6 @@ const home: React.FC = () => {
               setPriceRange={setPriceRange}
               showDropDown={showDropDown}
               toggleDropDown={toggleDropDown}
-              dismissHandler={dismissHandler}
               onSelectOrderBy={onSelectOrderBy}
               orderBy={orderBy}
               filterByType={filterByType}
@@ -97,12 +96,11 @@ const home: React.FC = () => {
               colors={aunctions.map((auction) => {
                 return auction.attributes.color;
               })}
-              setColorsSelected={setColorsSelected}
               colorsSelected={colorsSelected}
               showDropDownColors={showDropDownColors}
-              setShowDropDownColors={setShowDropDownColors}
               showDropDownLikes={showDropDownLikes}
-              setShowDropDownLikes={setShowDropDownLikes}
+              likesSelected={likesSelected}
+              setLikesSelected={setOrderLikes}
             >
               <Aunctions
                 aunctions={[...aunctions]}

@@ -29,19 +29,17 @@ type FiltersProps = {
     showDropDownColors,
     showDropDownLikes,
   }) => void;
-  dismissHandler: (e: React.FocusEvent<HTMLButtonElement>) => void;
   orderBy: string;
   onSelectOrderBy: (orderBy: string) => void;
   children?: React.ReactNode;
   filterByType: string;
   setFilterByType: (filterByType: string) => void;
   colors: string[];
-  setColorsSelected: (colors: string[]) => void;
   colorsSelected: string[];
   showDropDownColors: boolean;
-  setShowDropDownColors: (showDropDownColors: boolean) => void;
   showDropDownLikes: boolean;
-  setShowDropDownLikes: (showDropDownLikes: boolean) => void;
+  likesSelected: string;
+  setLikesSelected: (likesSelected: string) => void;
 };
 
 const Filters = (props: FiltersProps) => {
@@ -52,18 +50,16 @@ const Filters = (props: FiltersProps) => {
     maxPrice,
     showDropDown,
     toggleDropDown,
-    dismissHandler,
     orderBy,
     onSelectOrderBy,
     filterByType,
     setFilterByType,
     colors,
-    setColorsSelected,
     colorsSelected,
     showDropDownColors,
-    setShowDropDownColors,
     showDropDownLikes,
-    setShowDropDownLikes,
+    likesSelected,
+    setLikesSelected,
   } = props;
 
   const changeTypeFilter = (filter: string): void => {
@@ -150,10 +146,10 @@ const Filters = (props: FiltersProps) => {
           <label htmlFor="price range">Price Range</label>
 
           <DropdownFilter
-            options={['Newest', 'Oldest']}
+            options={['Most Liked', 'Least Liked']}
             toggleDropDown={toggleDropDown}
-            onChange={onSelectOrderBy}
-            selected={orderBy}
+            onChange={setLikesSelected}
+            selected={likesSelected}
             showDropDown={showDropDownLikes}
             dropdownId="likes"
           />
