@@ -11,6 +11,7 @@ import { HomeContainer, HomeWrapper } from '../styles/styles';
 import Search from '../components/Search/Search';
 import { aunctionsSelector } from '../features/aunctions/selectors';
 import Filters from '../components/Filters/Filters';
+import Logo from '../components/Navbar/assets/logo.svg';
 
 const home: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -73,6 +74,8 @@ const home: React.FC = () => {
 
   return (
     <HomeContainer>
+      <meta name="black"></meta>
+      <link rel="apple-touch-icon" href={Logo}></link>
       {auctions.length !== 0 && popular.length !== 0 ? (
         <HomeWrapper>
           <Popular
