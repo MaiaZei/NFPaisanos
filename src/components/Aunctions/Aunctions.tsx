@@ -120,6 +120,7 @@ const Aunctions = (props: AunctionsProps) => {
                   alt={aunction.type}
                   width={300}
                   height={300}
+                  priority
                 />
                 <AuctionBottomInformationContainer>
                   <RowDiv>
