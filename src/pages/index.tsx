@@ -75,19 +75,13 @@ const home: React.FC = () => {
     <>
       <Head>
         <meta name="black"></meta>
+        <title>NFPaisanosMaia</title>
+        <meta
+          property="og:title"
+          content="NFPaisanosMaia"
+          key="title"
+        />
         <link rel="apple-touch-icon" href={Logo}></link>
-        <link
-          rel="preconnect"
-          href="http://localhost:3000/nfpaisanos/eth-price"
-        ></link>
-        <link
-          rel="preconnect"
-          href="http://localhost:3000/nfpaisanos/popular"
-        ></link>
-        <link
-          rel="preconnect"
-          href="http://localhost:3000/nfpaisanos/aunctions"
-        ></link>
       </Head>
       <HomeContainer>
         <HomeWrapper>
