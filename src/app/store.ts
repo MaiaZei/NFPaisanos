@@ -4,13 +4,9 @@ import {
   ThunkAction,
 } from '@reduxjs/toolkit';
 import { aunctionsReducer } from '../features/aunctions';
-import { counterReducer } from '../features/counter';
-import { kanyeReducer } from '../features/kanye';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    kanyeQuote: kanyeReducer,
     aunctions: aunctionsReducer,
   },
 });
