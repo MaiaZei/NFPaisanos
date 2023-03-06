@@ -78,7 +78,7 @@ const Popular = (props: AunctionsProps) => {
         src={JonTyson}
         alt="jon tyson"
         width={300}
-        height={300}
+        height={10}
         priority
       />
       <PopularInformation>

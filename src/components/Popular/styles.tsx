@@ -144,7 +144,7 @@ export const CurrentBidLabel = styled.p`
 
 export const PopularImage = styled(Image)`
   width: 50%;
-  height: auto;
+  height: 50%;
   border-radius: 20px;
 
   @media (max-width: 640px) {
