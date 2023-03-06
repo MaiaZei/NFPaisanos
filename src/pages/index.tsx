@@ -70,6 +70,9 @@ const home: React.FC = () => {
       <Head>
         <title>NFPaisanosMaia</title>
         <meta name="black"></meta>
+        <meta name="description" content="NFPaisanos Challenge" />
+        <meta name="keywords" content="HTML, CSS, JavaScript" />
+        <meta name="author" content="Maia" />
       </Head>
       <HomeContainer lang="en">
         <HomeWrapper>
