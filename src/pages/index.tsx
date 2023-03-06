@@ -11,7 +11,6 @@ import { HomeContainer, HomeWrapper } from '../styles/styles';
 import Search from '../components/Search/Search';
 import { aunctionsSelector } from '../features/aunctions/selectors';
 import Filters from '../components/Filters/Filters';
-import Logo from '../components/Navbar/assets/logo.svg';
 import Head from 'next/head';
 
 const home: React.FC = () => {
