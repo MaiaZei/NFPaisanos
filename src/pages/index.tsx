@@ -8,9 +8,9 @@ import {
 import Aunctions from '../components/Aunctions/Aunctions';
 import Popular from '../components/Popular/Popular';
 import { HomeContainer, HomeWrapper } from '../styles/styles';
-import Filters from '../components/Filters/Filters';
 import Search from '../components/Search/Search';
 import { aunctionsSelector } from '../features/aunctions/selectors';
+import Filters from '../components/Filters/Filters';
 
 const home: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -73,7 +73,7 @@ const home: React.FC = () => {
 
   return (
     <HomeContainer>
-      {auctions.length !== 0 && popular.length !== 0 && (
+      {auctions.length !== 0 && popular.length !== 0 ? (
         <HomeWrapper>
           <Popular
             popular={[...popular]}
@@ -112,6 +112,8 @@ const home: React.FC = () => {
             </Filters>
           </div>
         </HomeWrapper>
+      ) : (
+        <p>Loading...</p>
       )}
     </HomeContainer>
   );
