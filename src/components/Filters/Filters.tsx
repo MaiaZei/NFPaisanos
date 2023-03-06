@@ -17,6 +17,7 @@ import {
 } from './styles';
 import Fill from '../../styles/assets/Fill.svg';
 import Shape from './assets/Shape.svg';
+import Base from '../../styles/assets/Base.svg';
 
 type FiltersProps = {
   priceRange: number;

@@ -74,6 +74,7 @@ const home: React.FC = () => {
     <HomeContainer>
       <meta name="black"></meta>
       <link rel="apple-touch-icon" href={Logo}></link>
+      <link rel="preload" as="font"></link>
       {auctions.length !== 0 && popular.length !== 0 ? (
         <HomeWrapper>
           <Popular
