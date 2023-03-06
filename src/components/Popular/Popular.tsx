@@ -6,7 +6,6 @@ import {
   BidContainer,
   ButtonsContainer,
   Creator,
-  CreatorAvatar,
   CreatorLabel,
   CreatorName,
   CreatorNameContainer,
@@ -30,40 +29,11 @@ import RightArrow from './assets/rightArrow.svg';
 import CountDownTimer from '../CountdownTimer/CountdownTimer';
 import InstantPriceIcon from './assets/instantPriceIcon.svg';
 import JonTyson from './assets/jon-tyson.png';
-import { AnimatePresence, motion } from 'framer-motion';
 
 type AunctionsProps = {
   popular: AunctionProps[];
   ethPrice: string;
 };
-
-const variants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? 150 : -150,
-      opacity: 0,
-    };
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 150 : -150,
-      opacity: 0,
-    };
-  },
-};
-
-/**
- * Experimenting with distilling swipe offset and velocity into a single variable, so the
- * less distance a user has swiped, the more velocity they need to register as a swipe.
- * Should accomodate longer swipes and short flicks without having binary checks on
- * just distance thresholds and velocity > 0.
- */
 
 const Popular = (props: AunctionsProps) => {
   const [aunctionShowing, setAunctionShowing] = useState<number>(0);
@@ -100,17 +70,6 @@ const Popular = (props: AunctionsProps) => {
     ];
 
     return { days, hours, minutes, seconds: secs };
-  };
-
-  const [[page, direction], setPage] = useState([0, 0]);
-
-  // We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
-  // then wrap that within 0-2 to find our image ID in the array below. By passing an
-  // absolute page index as the `motion` component's `key` prop, `AnimatePresence` will
-  // detect it as an entirely new image. So you can infinitely paginate as few as 1 images.
-
-  const paginate = (newDirection: number) => {
-    setPage([page + newDirection, newDirection]);
   };
 
   return (
@@ -186,7 +145,6 @@ const Popular = (props: AunctionsProps) => {
         <ButtonsContainer>
           <PreviousButton
             onClick={() => {
-              paginate(-1);
               setAunctionShowing(
                 aunctionShowing === 0
                   ? props.popular.length - 1
@@ -203,7 +161,6 @@ const Popular = (props: AunctionsProps) => {
           </PreviousButton>
           <NextButton
             onClick={() => {
-              paginate(1);
               setAunctionShowing(
                 aunctionShowing === props.popular.length - 1
                   ? 0

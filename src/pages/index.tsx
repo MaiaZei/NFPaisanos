@@ -15,9 +15,7 @@ import Logo from '../components/Navbar/assets/logo.svg';
 
 const home: React.FC = () => {
   const dispatch = useAppDispatch();
-  //useEffect(() => {
-  //  dispatch(getAunctions());
-  //}, []);
+
   useEffect(() => {
     dispatch(getAunctions());
     dispatch(getPopulars());

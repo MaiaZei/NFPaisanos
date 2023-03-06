@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Icon, SearchContainer, SearchInput } from './styles';
 import SearchIcon from './assets/SearchIcon.svg';
 import { motion } from 'framer-motion';
