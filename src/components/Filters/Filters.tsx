@@ -112,6 +112,8 @@ const Filters = (props: FiltersProps) => {
             margin: '0 auto',
           }}
         >
+          <label htmlFor="price range">Price Range</label>
+
           <div
             style={{
               position: 'relative',
@@ -143,7 +145,6 @@ const Filters = (props: FiltersProps) => {
             </div>
             <div className="triangle-range-left-slider"></div>
           </div>
-          <label htmlFor="price range">Price Range</label>
 
           <DropdownFilter
             options={['Most Liked', 'Least Liked']}
