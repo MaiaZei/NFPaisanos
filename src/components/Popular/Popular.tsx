@@ -74,6 +74,8 @@ const Popular = (props: AunctionsProps) => {
 
   return (
     <PopularContainer key={props.popular[aunctionShowing]?.id}>
+      <div style={{ margin: '600px' }}></div>
+
       <PopularInformation>
         <TopDiv>the creator network</TopDiv>
         <Creator>
