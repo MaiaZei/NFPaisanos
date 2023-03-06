@@ -124,7 +124,15 @@ const home: React.FC = () => {
           </div>
         </HomeWrapper>
       ) : (
-        <p>Loading...</p>
+        <div
+          style={{
+            margin: 'auto',
+            width: 'fit-content',
+            padding: '20px',
+          }}
+        >
+          <p>Loading...</p>
+        </div>
       )}
     </HomeContainer>
   );

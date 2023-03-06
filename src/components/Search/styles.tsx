@@ -32,6 +32,31 @@ export const SearchInput = styled.input`
   align-items: center;
   letter-spacing: -0.01em;
   color: #e6e8ec;
+  margin: auto;
+
+  @media (max-width: 640px) {
+    font-size: 14px;
+    line-height: 16px;
+    ::placeholder,
+    ::-webkit-input-placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      display: flex;
+      align-items: center;
+      letter-spacing: -0.01em;
+      color: #e6e8ec;
+    }
+    :-ms-input-placeholder {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      display: flex;
+      align-items: center;
+      letter-spacing: -0.01em;
+      color: #e6e8ec;
+    }
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -41,11 +66,21 @@ export const SearchContainer = styled.div`
   justify-content: space-between;
 
   @media (max-width: 640px) {
-    width: 80%;
+    width: 256px;
     margin: 20px auto;
+    border: 1px solid #353945;
+    border-radius: 5px;
+    padding: 11px;
+    height: auto;
   }
 `;
 
 export const Icon = styled(Image)`
   cursor: pointer;
+  margin: auto;
+
+  @media (max-width: 640px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
