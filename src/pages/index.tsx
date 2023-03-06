@@ -21,14 +21,13 @@ const home: React.FC = () => {
     dispatch(getAunctions());
     dispatch(getEthPrice());
   }, []);
-  const { aunctions, popular, ethPrice, pending, error } =
+  const { aunctions, popular, ethPrice } =
     useAppSelector(aunctionsSelector);
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
 
   const [showDropDownColors, setShowDropDownColors] =
     useState<boolean>(false);
   const [orderBy, setOrderBy] = useState<string>('Newest');
-  const [auctions, setAuctions] = useState([]);
   const [priceRange, setPriceRange] = useState<number>(0);
   const [colorsSelected] = useState<string[]>([]);
   const [likesSelected, setLikesSelected] =
@@ -40,10 +39,6 @@ const home: React.FC = () => {
   const prices = aunctions.map((auction) =>
     parseFloat(auction.instantPrice)
   );
-  useEffect(() => {
-    setAuctions([...aunctions]);
-  }, [aunctions]);
-
   const minPrice = Math.min(...prices);
   const maxPrice = Math.max(...prices);
 
