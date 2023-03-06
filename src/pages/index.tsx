@@ -70,7 +70,6 @@ const home: React.FC = () => {
       <Head>
         <title>NFPaisanosMaia</title>
         <meta name="black"></meta>
-        <link rel="apple-touch-icon" href={'hola'}></link>
       </Head>
       <HomeContainer>
         <HomeWrapper>
