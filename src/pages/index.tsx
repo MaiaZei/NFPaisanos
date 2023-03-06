@@ -76,12 +76,6 @@ const home: React.FC = () => {
       <Head>
         <meta name="black"></meta>
         <title>NFPaisanosMaia</title>
-        <meta
-          property="og:title"
-          content="NFPaisanosMaia"
-          key="title"
-        />
-        <link rel="apple-touch-icon" href={Logo}></link>
       </Head>
       <HomeContainer>
         <HomeWrapper>
