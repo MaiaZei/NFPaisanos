@@ -40,7 +40,7 @@ export const SearchContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     width: 80%;
     margin: 20px auto;
   }

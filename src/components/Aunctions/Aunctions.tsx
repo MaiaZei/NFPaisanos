@@ -7,6 +7,8 @@ import {
   AunctionContainer,
   AunctionImage,
   AunctionsGrid,
+  BidLabel,
+  BidText,
   BidUserImage,
   BidUsersContainer,
   HoverThings,
@@ -20,6 +22,7 @@ import {
 } from './styles';
 import AddToWishList from './assets/addToWishlist.svg';
 import { motion } from 'framer-motion';
+import HighestBidIcon from './assets/HighestBidIcon.svg';
 
 import PlaceBidIcon from './assets/PlaceBidIcon.svg';
 
@@ -141,9 +144,33 @@ const Aunctions = (props: AunctionsProps) => {
                     </BidUsersContainer>
                     <StockLabel>{aunction.stock} in stock</StockLabel>
                   </RowDiv>
-
-                  <p>highest Bid: {aunction.highestBid}</p>
-                  <p>New bid</p>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      borderTop: '1px solid #777e91',
+                      paddingTop: '10px',
+                      marginTop: '10px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                      }}
+                    >
+                      <BidLabel style={{ display: 'flex' }}>
+                        <Image
+                          src={HighestBidIcon}
+                          alt="highest bid"
+                          width={20}
+                          height={20}
+                        />
+                        Highest Bid:
+                      </BidLabel>
+                      <BidText>{aunction.highestBid}</BidText>
+                    </div>
+                    <BidLabel>New bid🔥</BidLabel>
+                  </div>
                 </AuctionBottomInformationContainer>
               </AunctionContainer>
             );

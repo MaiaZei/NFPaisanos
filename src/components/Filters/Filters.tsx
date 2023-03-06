@@ -1,19 +1,21 @@
 import Image from 'next/image';
-import Fill from '../../styles/assets/Fill.svg';
+import DropdownFilter from './DropdownFilter';
 import {
-  OptionsContainer,
-  Option,
-  Dropdown,
-  DropdownDiv,
-  DropdownArrow,
   ArrowDiv,
+  CircleColor,
+  DropdownArrow,
+  DropdownDiv,
   FilterButton,
   FilterButtonsContainer,
-  CircleColor,
-  OptionContainer,
   FiltersContainer,
-  DropdownContainer,
+  Option,
+  OptionContainer,
+  OptionsContainer,
+  Dropdown,
+  TopFiltersContainer,
+  BottomFiltersContainer,
 } from './styles';
+import Fill from '../../styles/assets/Fill.svg';
 import Shape from './assets/Shape.svg';
 
 type FiltersProps = {
@@ -22,7 +24,11 @@ type FiltersProps = {
   minPrice: number;
   maxPrice: number;
   showDropDown: boolean;
-  toggleDropDown: (showDropDown: boolean) => void;
+  toggleDropDown: ({
+    showDropDown,
+    showDropDownColors,
+    showDropDownLikes,
+  }) => void;
   dismissHandler: (e: React.FocusEvent<HTMLButtonElement>) => void;
   orderBy: string;
   onSelectOrderBy: (orderBy: string) => void;
@@ -72,175 +78,15 @@ const Filters = (props: FiltersProps) => {
 
   return (
     <FiltersContainer>
-      <DropdownContainer>
-        <DropdownDiv
-          rotation={showDropDown}
-          onClick={(): void => {
-            toggleDropDown(!showDropDown);
-            setShowDropDownColors(false);
-            setShowDropDownLikes(false);
-          }}
-          onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-            dismissHandler(e)
-          }
-        >
-          <Dropdown>{orderBy}</Dropdown>
-          <ArrowDiv>
-            <DropdownArrow
-              src={Shape}
-              rotate={
-                showDropDown ? 'rotate(0deg)' : 'rotate(-90deg)'
-              }
-              alt="arrow"
-            />
-          </ArrowDiv>
-        </DropdownDiv>
-        <OptionsContainer show={showDropDown}>
-          <Option
-            onClick={(): void => {
-              onSelectOrderBy('Newest');
-            }}
-            show={showDropDown}
-          >
-            <OptionContainer>Newest</OptionContainer>
-          </Option>
-          <Option
-            onClick={(): void => {
-              onSelectOrderBy('Oldest');
-            }}
-            show={showDropDown}
-          >
-            <OptionContainer>Oldest</OptionContainer>
-          </Option>
-        </OptionsContainer>
-
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            marginTop: '20px',
-          }}
-        >
-          <input
-            type="range"
-            min={minPrice}
-            max={maxPrice}
-            step="0.001"
-            name="price range"
-            id="price-range"
-            value={priceRange}
-            onChange={(e) => {
-              setPriceRange(Number(e.target.value));
-            }}
-            className="triangle-range-slider"
-          />
-          <div className="triangle-range-background-slider">
-            <Image
-              src={Fill}
-              alt="Fill"
-              width={(priceRange * 256) / maxPrice}
-              height={16}
-            ></Image>
-          </div>
-          <div className="triangle-range-left-slider"></div>
-        </div>
-        <label htmlFor="price range">Price Range</label>
-        <DropdownDiv
-          rotation={showDropDownLikes}
-          onClick={(): void => {
-            setShowDropDownLikes(!showDropDownLikes);
-            setShowDropDownColors(false);
-            toggleDropDown(false);
-          }}
-          onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-            dismissHandler(e)
-          }
-        >
-          <Dropdown>Most Liked</Dropdown>
-          <ArrowDiv>
-            <DropdownArrow
-              src={Shape}
-              rotate={
-                showDropDownLikes ? 'rotate(0deg)' : 'rotate(-90deg)'
-              }
-              alt="arrow"
-            />
-          </ArrowDiv>
-        </DropdownDiv>
-        <OptionsContainer show={showDropDownLikes}>
-          <Option
-            onClick={(): void => {
-              setShowDropDownLikes(!showDropDownLikes);
-            }}
-            show={showDropDownLikes}
-          >
-            <OptionContainer>Most Liked</OptionContainer>
-          </Option>
-          <Option
-            onClick={(): void => {
-              setShowDropDownLikes(!showDropDownLikes);
-            }}
-            show={showDropDownLikes}
-          >
-            <OptionContainer>Least Liked</OptionContainer>
-          </Option>
-        </OptionsContainer>
-        <DropdownDiv
-          rotation={showDropDownColors}
-          onClick={(): void => {
-            setShowDropDownColors(!showDropDownColors);
-            setShowDropDownLikes(false);
-            toggleDropDown(false);
-          }}
-          onBlur={(e: React.FocusEvent<HTMLButtonElement>): void =>
-            dismissHandler(e)
-          }
-        >
-          <Dropdown>Colores</Dropdown>
-          <ArrowDiv>
-            <DropdownArrow
-              src={Shape}
-              rotate={
-                showDropDownColors ? 'rotate(0deg)' : 'rotate(-90deg)'
-              }
-              alt="arrow"
-            />
-          </ArrowDiv>
-        </DropdownDiv>
-        <OptionsContainer show={showDropDownColors}>
-          <Option>
-            <OptionContainer>All Colors</OptionContainer>
-          </Option>
-          {coloresUnicos.map((color) => {
-            return (
-              <Option
-                onClick={(): void => {
-                  if (colorsSelected.includes(color)) {
-                    colorsSelected.splice(
-                      colorsSelected.indexOf(color),
-                      1
-                    );
-                  } else {
-                    colorsSelected.push(color);
-                  }
-
-                  setColorsSelected(colorsSelected);
-                  setShowDropDownColors(false);
-                }}
-                show={showDropDownColors}
-              >
-                <OptionContainer
-                  selected={colorsSelected.includes(color)}
-                >
-                  <CircleColor color={color} />
-                  {color}
-                </OptionContainer>
-              </Option>
-            );
-          })}
-        </OptionsContainer>
-      </DropdownContainer>
-      <div>
+      <TopFiltersContainer>
+        <DropdownFilter
+          options={['Newest', 'Oldest']}
+          toggleDropDown={toggleDropDown}
+          onChange={onSelectOrderBy}
+          selected={orderBy}
+          showDropDown={showDropDown}
+          dropdownId="order-by"
+        />
         <FilterButtonsContainer>
           <FilterButton
             selected={filterByType == 'All items'}
@@ -261,8 +107,110 @@ const Filters = (props: FiltersProps) => {
             Photography
           </FilterButton>
         </FilterButtonsContainer>
-        {props?.children}
-      </div>
+      </TopFiltersContainer>
+      <BottomFiltersContainer>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            margin: '0 auto',
+          }}
+        >
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              marginTop: '20px',
+              maxWidth: '256px',
+            }}
+          >
+            <input
+              type="range"
+              min={minPrice}
+              max={maxPrice}
+              step="0.001"
+              name="price range"
+              id="price-range"
+              value={priceRange}
+              onChange={(e) => {
+                setPriceRange(Number(e.target.value));
+              }}
+              className="triangle-range-slider"
+            />
+            <div className="triangle-range-background-slider">
+              <Image
+                src={Fill}
+                alt="Fill"
+                width={(priceRange * 256) / maxPrice}
+                height={16}
+              ></Image>
+            </div>
+            <div className="triangle-range-left-slider"></div>
+          </div>
+          <label htmlFor="price range">Price Range</label>
+
+          <DropdownFilter
+            options={['Newest', 'Oldest']}
+            toggleDropDown={toggleDropDown}
+            onChange={onSelectOrderBy}
+            selected={orderBy}
+            showDropDown={showDropDownLikes}
+            dropdownId="likes"
+          />
+          <div>
+            <DropdownDiv
+              rotation={showDropDownColors}
+              onClick={(): void => {
+                toggleDropDown({
+                  showDropDown: false,
+                  showDropDownColors: !showDropDownColors,
+                  showDropDownLikes: false,
+                });
+              }}
+            >
+              <Dropdown>Colores</Dropdown>
+              <ArrowDiv>
+                <DropdownArrow
+                  src={Shape}
+                  rotate={
+                    showDropDownColors
+                      ? 'rotate(0deg)'
+                      : 'rotate(-90deg)'
+                  }
+                  alt="arrow"
+                />
+              </ArrowDiv>
+            </DropdownDiv>
+            <OptionsContainer show={showDropDownColors}>
+              <Option>
+                <OptionContainer>All Colors</OptionContainer>
+              </Option>
+              {coloresUnicos.map((color) => {
+                return (
+                  <Option
+                    onClick={(): void => {
+                      toggleDropDown({
+                        showDropDown: false,
+                        showDropDownColors: false,
+                        showDropDownLikes: false,
+                      });
+                    }}
+                    show={showDropDownColors}
+                  >
+                    <OptionContainer
+                      selected={colorsSelected.includes(color)}
+                    >
+                      <CircleColor color={color} />
+                      {color}
+                    </OptionContainer>
+                  </Option>
+                );
+              })}
+            </OptionsContainer>
+          </div>
+        </div>
+        <div>{props.children}</div>
+      </BottomFiltersContainer>
     </FiltersContainer>
   );
 };

@@ -12,6 +12,10 @@ export const OptionsContainer = styled.div`
   z-index: 10;
   display: ${(props) => (props.show ? 'flex' : 'none')};
   padding: 11px 0;
+
+  @media (max-width: 640px) {
+    margin: auto;
+  }
 `;
 
 export const Option = styled.p`
@@ -40,6 +44,11 @@ export const DropdownDiv = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 640px) {
+    align-items: center;
+    margin: auto;
+  }
 `;
 
 export const DropdownArrow = styled(Image)`
@@ -82,7 +91,7 @@ export const FilterButtonsContainer = styled.div`
   justify-content: right;
   padding: 10px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     justify-content: center;
     margin: auto;
   }
@@ -108,9 +117,9 @@ export const OptionContainer = styled.div`
 
 export const FiltersContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: auto;
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     flex-direction: column;
   }
 `;
@@ -120,4 +129,21 @@ export const DropdownContainer = styled.div`
   flex-direction: column;
   width: 256px;
   margin: 0 auto;
+`;
+
+export const TopFiltersContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
+`;
+
+export const BottomFiltersContainer = styled.div`
+  display: flex;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
 `;

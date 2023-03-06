@@ -13,7 +13,7 @@ export const PopularContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 32px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     flex-direction: column;
     width: 80%;
     margin: 0 auto;
@@ -25,7 +25,7 @@ export const PopularInformation = styled.div`
   flex-direction: column;
   width: 35%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     width: 100%;
   }
 `;
@@ -143,7 +143,7 @@ export const PopularImage = styled(Image)`
   height: auto;
   border-radius: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     width: 100%;
   }
 `;

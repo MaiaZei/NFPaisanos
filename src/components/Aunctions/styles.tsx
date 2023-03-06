@@ -3,12 +3,16 @@ import styled from 'styled-components';
 
 export const AunctionsGrid = styled.div`
   display: grid;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 2% 5%;
   margin-left: 5%;
   padding-bottom: 50px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1080px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
     grid-template-columns: 100%;
     grid-gap: 0;
     margin-left: 0;
@@ -21,6 +25,10 @@ export const AunctionContainer = styled.div`
   flex-direction: column;
   position: relative;
   padding: 20px;
+
+  @media (max-width: 640px) {
+    margin: 16px 0;
+  }
 `;
 
 export const AunctionImage = styled(Image)`
@@ -71,7 +79,7 @@ export const HoverThings = styled.div`
   left: 10%;
   top: 5%;
   display: none;
-  height: 70%;
+  height: 65%;
   ${AunctionContainer}:hover & {
     display: flex;
     flex-direction: column;
@@ -88,6 +96,7 @@ export const AuctionInstantPrice = styled.div`
   color: #45b36b;
   border: 2px solid #45b36b;
   border-radius: 5px;
+  padding: 5px;
 `;
 
 export const AuctionBottomInformationContainer = styled.div`
@@ -124,4 +133,19 @@ export const BidUserImage = styled(Image)`
   height: 24px;
   position: relative;
   left: ${(props) => props.left * -8}px;
+`;
+
+export const BidLabel = styled.p`
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 20px;
+  color: #777e91;
+  margin-right: 5px;
+`;
+
+export const BidText = styled.p`
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 20px;
+  color: #fcfcfd;
 `;

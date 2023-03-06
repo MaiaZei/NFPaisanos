@@ -121,86 +121,68 @@ const Popular = (props: AunctionsProps) => {
         width={300}
         height={300}
       />
-
       <PopularInformation>
         <TopDiv>the creator network</TopDiv>
-        <AnimatePresence>
-          <motion.div
-            key={props.popular[aunctionShowing]?.id}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: 'spring', stiffness: 400, damping: 30 },
-              opacity: { duration: 0.5 },
-            }}
-            style={{ width: '100%' }}
-          >
-            <Creator>
-              <CreatorNameContainer>
-                <CreatorNameWrapper>
-                  <Image
-                    src={props.popular[aunctionShowing]?.authorAvatar}
-                    alt={props.popular[aunctionShowing]?.author}
-                    width={50}
-                    height={50}
-                  />
-                  <CreatorWrapper>
-                    <CreatorLabel>Creator</CreatorLabel>
-                    <CreatorName>
-                      {props.popular[aunctionShowing]?.author}
-                    </CreatorName>
-                  </CreatorWrapper>
-                </CreatorNameWrapper>
-                <CreatorNameWrapper>
-                  <Image
-                    src={InstantPriceIcon}
-                    alt="instant price"
-                    width={50}
-                    height={50}
-                  />
-                  <CreatorWrapper>
-                    <CreatorLabel>Instant price</CreatorLabel>
-                    <CreatorName>
-                      {props.popular[aunctionShowing]?.instantPrice}
-                    </CreatorName>
-                  </CreatorWrapper>
-                </CreatorNameWrapper>
-              </CreatorNameContainer>
-            </Creator>
-            <BidContainer>
-              <CurrentBidLabel>Current bid</CurrentBidLabel>
-              <CurrentBidNumber>
-                {props.popular[aunctionShowing]?.highestBid}
-              </CurrentBidNumber>
-              <CurrentBidUsd>
-                $
-                {parseFloat(props.ethPrice.replace(',', '')) *
-                  parseFloat(
-                    props.popular[aunctionShowing]?.highestBid
-                  )}
-              </CurrentBidUsd>
-              <AuctionEnding>Auction ending in </AuctionEnding>
-              {endingTime.days <= 0 &&
-              endingTime.hours <= 0 &&
-              endingTime.minutes <= 0 &&
-              endingTime.seconds <= 0 ? (
-                <EndedLabel>This auction has ended</EndedLabel>
-              ) : (
-                <CountDownTimer
-                  days={endingTime.days}
-                  hours={endingTime.hours}
-                  minutes={endingTime.minutes}
-                  seconds={endingTime.seconds}
-                />
-              )}
-            </BidContainer>
-            <PlaceBidButton>Place a bid</PlaceBidButton>
-            <ViewItemButton>View item</ViewItemButton>
-          </motion.div>
-        </AnimatePresence>
+        <Creator>
+          <CreatorNameContainer>
+            <CreatorNameWrapper>
+              <Image
+                src={props.popular[aunctionShowing]?.authorAvatar}
+                alt={props.popular[aunctionShowing]?.author}
+                width={50}
+                height={50}
+              />
+              <CreatorWrapper>
+                <CreatorLabel>Creator</CreatorLabel>
+                <CreatorName>
+                  {props.popular[aunctionShowing]?.author}
+                </CreatorName>
+              </CreatorWrapper>
+            </CreatorNameWrapper>
+            <CreatorNameWrapper>
+              <Image
+                src={InstantPriceIcon}
+                alt="instant price"
+                width={50}
+                height={50}
+              />
+              <CreatorWrapper>
+                <CreatorLabel>Instant price</CreatorLabel>
+                <CreatorName>
+                  {props.popular[aunctionShowing]?.instantPrice}
+                </CreatorName>
+              </CreatorWrapper>
+            </CreatorNameWrapper>
+          </CreatorNameContainer>
+        </Creator>
+        <BidContainer>
+          <CurrentBidLabel>Current bid</CurrentBidLabel>
+          <CurrentBidNumber>
+            {props.popular[aunctionShowing]?.highestBid}
+          </CurrentBidNumber>
+          <CurrentBidUsd>
+            $
+            {parseFloat(props.ethPrice.replace(',', '')) *
+              parseFloat(props.popular[aunctionShowing]?.highestBid)}
+          </CurrentBidUsd>
+          <AuctionEnding>Auction ending in </AuctionEnding>
+          {endingTime.days <= 0 &&
+          endingTime.hours <= 0 &&
+          endingTime.minutes <= 0 &&
+          endingTime.seconds <= 0 ? (
+            <EndedLabel>This auction has ended</EndedLabel>
+          ) : (
+            <CountDownTimer
+              days={endingTime.days}
+              hours={endingTime.hours}
+              minutes={endingTime.minutes}
+              seconds={endingTime.seconds}
+            />
+          )}
+        </BidContainer>
+        <PlaceBidButton>Place a bid</PlaceBidButton>
+        <ViewItemButton>View item</ViewItemButton>
+
         <ButtonsContainer>
           <PreviousButton
             onClick={() => {

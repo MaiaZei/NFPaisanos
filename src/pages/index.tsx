@@ -54,10 +54,14 @@ const home: React.FC = () => {
     setOrderBy(orderBy);
   };
 
-  const toggleDropDown = (): void => {
-    setShowDropDown(!showDropDown);
-    setShowDropDownColors(false);
-    setShowDropDownLikes(false);
+  const toggleDropDown = ({
+    showDropDown,
+    showDropDownColors,
+    showDropDownLikes,
+  }): void => {
+    setShowDropDown(showDropDown);
+    setShowDropDownColors(showDropDownColors);
+    setShowDropDownLikes(showDropDownLikes);
   };
   const dismissHandler = (
     event: React.FocusEvent<HTMLButtonElement>
@@ -83,7 +87,7 @@ const home: React.FC = () => {
               priceRange={priceRange}
               setPriceRange={setPriceRange}
               showDropDown={showDropDown}
-              toggleDropDown={setShowDropDown}
+              toggleDropDown={toggleDropDown}
               dismissHandler={dismissHandler}
               onSelectOrderBy={onSelectOrderBy}
               orderBy={orderBy}
