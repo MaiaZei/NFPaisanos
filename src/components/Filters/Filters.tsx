@@ -134,11 +134,12 @@ const Filters = (props: FiltersProps) => {
                 setPriceRange(Number(e.target.value));
               }}
               className="triangle-range-slider"
+              alt="Input range"
             />
             <div className="triangle-range-background-slider">
               <Image
                 src={Fill}
-                alt="Fill"
+                alt="Range slider"
                 width={(priceRange * 256) / maxPrice}
                 height={16}
               ></Image>
@@ -184,10 +185,10 @@ const Filters = (props: FiltersProps) => {
               <Option>
                 <OptionContainer>All Colors</OptionContainer>
               </Option>
-              {uniqueColors.map((color) => {
+              {uniqueColors.map((color, index) => {
                 return (
                   <Option
-                    key={color}
+                    key={index}
                     onClick={(): void => {
                       toggleDropDown({
                         showDropDown: false,
