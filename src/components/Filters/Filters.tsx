@@ -65,10 +65,10 @@ const Filters = (props: FiltersProps) => {
   const changeTypeFilter = (filter: string): void => {
     setFilterByType(filter);
   };
-  const coloresUnicos = [colors[0]];
+  const uniqueColors = [colors[0]];
   colors.forEach((color) => {
-    if (!coloresUnicos.includes(color)) {
-      coloresUnicos.push(color);
+    if (!uniqueColors.includes(color)) {
+      uniqueColors.push(color);
     }
   });
 
@@ -184,7 +184,7 @@ const Filters = (props: FiltersProps) => {
               <Option>
                 <OptionContainer>All Colors</OptionContainer>
               </Option>
-              {coloresUnicos.map((color) => {
+              {uniqueColors.map((color) => {
                 return (
                   <Option
                     key={color}
