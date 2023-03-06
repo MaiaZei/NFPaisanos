@@ -74,24 +74,29 @@ const Popular = (props: AunctionsProps) => {
 
   return (
     <PopularContainer key={props.popular[aunctionShowing]?.id}>
-      <PopularImage
-        src={JonTyson}
-        alt="jon tyson"
-        width={300}
-        height={10}
-        priority
-      />
+      {JonTyson && (
+        <PopularImage
+          src={JonTyson}
+          alt="jon tyson"
+          width={300}
+          height={10}
+          priority
+        />
+      )}
+
       <PopularInformation>
         <TopDiv>the creator network</TopDiv>
         <Creator>
           <CreatorNameContainer>
             <CreatorNameWrapper>
-              <Image
-                src={props.popular[aunctionShowing]?.authorAvatar}
-                alt={props.popular[aunctionShowing]?.author}
-                width={50}
-                height={50}
-              />
+              {props.popular[aunctionShowing] && (
+                <Image
+                  src={props.popular[aunctionShowing]?.authorAvatar}
+                  alt={props.popular[aunctionShowing]?.author}
+                  width={50}
+                  height={50}
+                />
+              )}
               <CreatorWrapper>
                 <CreatorLabel>Creator</CreatorLabel>
                 <CreatorName>
@@ -100,12 +105,14 @@ const Popular = (props: AunctionsProps) => {
               </CreatorWrapper>
             </CreatorNameWrapper>
             <CreatorNameWrapper>
-              <Image
-                src={InstantPriceIcon}
-                alt="instant price"
-                width={50}
-                height={50}
-              />
+              {InstantPriceIcon && (
+                <Image
+                  src={InstantPriceIcon}
+                  alt="instant price"
+                  width={50}
+                  height={50}
+                />
+              )}
               <CreatorWrapper>
                 <CreatorLabel>Instant price</CreatorLabel>
                 <CreatorName>
