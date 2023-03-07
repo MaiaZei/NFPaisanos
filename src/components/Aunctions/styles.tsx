@@ -13,6 +13,7 @@ export const AunctionsGrid = styled.div`
   }
 
   @media (max-width: 640px) {
+    max-width: 256px;
     grid-template-columns: 100%;
     grid-gap: 0;
     margin-left: 0;
