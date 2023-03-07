@@ -116,7 +116,7 @@ const Aunctions = (props: AunctionsProps) => {
                   </motion.div>
                 </HoverThings>
                 <AunctionImage
-                  src={aunction.media.image}
+                  src={aunction.media.image2x}
                   alt={aunction.type}
                   width={300}
                   height={300}
