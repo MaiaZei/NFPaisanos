@@ -53,7 +53,7 @@ const Popular = (props: AunctionsProps) => {
       minutes: time.minutes,
       seconds: time.seconds,
     });
-  }, [aunctionShowing]);
+  }, [aunctionShowing, props.popular]);
 
   const getEndingTime = (date: string) => {
     let diffTime = new Date(date).valueOf() - new Date().valueOf();
