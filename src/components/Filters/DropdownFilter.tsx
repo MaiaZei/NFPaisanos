@@ -16,9 +16,10 @@ const DropdownFilter = ({
   toggleDropDown,
   selected,
   dropdownId,
+  id,
 }) => {
   return (
-    <div>
+    <div id={id}>
       <DropdownDiv
         rotation={showDropDown}
         onClick={(): void => {

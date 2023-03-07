@@ -27,6 +27,7 @@ export const PopularInformation = styled.div`
 
   @media (max-width: 640px) {
     width: 100%;
+    margin-bottom: 32px;
   }
 `;
 
@@ -129,6 +130,10 @@ export const PreviousButton = styled.button`
 export const ButtonsContainer = styled.div`
   display: flex;
   margin-top: 40px;
+
+  @media (max-width: 640px) {
+    justify-content: center;
+  }
 `;
 
 export const CurrentBidLabel = styled.p`

@@ -14,9 +14,12 @@ import {
   Dropdown,
   TopFiltersContainer,
   BottomFiltersContainer,
+  RangeOutput,
+  RangeOutputArrow,
 } from './styles';
 import Fill from '../../styles/assets/Fill.svg';
 import Shape from './assets/Shape.svg';
+import { relative } from 'path';
 
 type FiltersProps = {
   priceRange: number;
@@ -82,6 +85,7 @@ const Filters = (props: FiltersProps) => {
           selected={orderBy}
           showDropDown={showDropDown}
           dropdownId="order-by"
+          id={'order-by'}
         />
         <FilterButtonsContainer>
           <FilterButton
@@ -110,23 +114,70 @@ const Filters = (props: FiltersProps) => {
             display: 'flex',
             flexDirection: 'column',
             margin: '0 auto',
+            marginTop: '10px',
           }}
         >
-          <label htmlFor="price-range">Price Range</label>
+          <label
+            htmlFor="price-range"
+            style={{
+              fontStyle: 'normal',
+              fontWeight: '700',
+              fontSize: '12px',
+              lineHeight: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              textTransform: 'uppercase',
+              color: '#B1B5C4',
+            }}
+          >
+            Price Range
+          </label>
 
           <div
             style={{
               position: 'relative',
               width: '100%',
-              marginTop: '20px',
               maxWidth: '256px',
+              borderBottom: '1px solid #2C2C2E',
+              marginBottom: '10px',
             }}
           >
+            <div>
+              <RangeOutput
+                htmlFor="price-range"
+                style={{
+                  left: `calc(${
+                    ((priceRange - minPrice) * 100) /
+                    (maxPrice - minPrice)
+                  }% + (${
+                    -20 -
+                    (((priceRange - minPrice) * 100) /
+                      (maxPrice - minPrice)) *
+                      0.2
+                  }px))`,
+                }}
+              >
+                {priceRange.toFixed(2)} ETH
+              </RangeOutput>
+              <RangeOutputArrow
+                style={{
+                  left: `calc(${
+                    ((priceRange - minPrice) * 100) /
+                    (maxPrice - minPrice)
+                  }% + (${
+                    -10 -
+                    (((priceRange - minPrice) * 100) /
+                      (maxPrice - minPrice)) *
+                      0.2
+                  }px))`,
+                }}
+              />
+            </div>
             <input
               type="range"
               min={minPrice}
               max={maxPrice}
-              step="0.001"
+              step="0.01"
               name="price-range"
               id="price-range"
               value={priceRange}
@@ -145,8 +196,33 @@ const Filters = (props: FiltersProps) => {
               ></Image>
             </div>
             <div className="triangle-range-left-slider"></div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                margin: '10px 0',
+              }}
+            >
+              <p>{minPrice} ETH</p>
+              <p>{maxPrice} ETH</p>
+            </div>
           </div>
-
+          <label
+            htmlFor="likes"
+            style={{
+              fontStyle: 'normal',
+              fontWeight: '700',
+              fontSize: '12px',
+              lineHeight: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              textTransform: 'uppercase',
+              color: '#B1B5C4',
+              margin: '20px 0 10px',
+            }}
+          >
+            Likes
+          </label>
           <DropdownFilter
             options={['Most Liked', 'Least Liked']}
             toggleDropDown={toggleDropDown}
@@ -154,8 +230,25 @@ const Filters = (props: FiltersProps) => {
             selected={likesSelected}
             showDropDown={showDropDownLikes}
             dropdownId="likes"
+            id="likes"
           />
           <div>
+            <label
+              htmlFor="colors"
+              style={{
+                fontStyle: 'normal',
+                fontWeight: '700',
+                fontSize: '12px',
+                lineHeight: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                textTransform: 'uppercase',
+                color: '#B1B5C4',
+                margin: '20px 0 10px',
+              }}
+            >
+              Open
+            </label>
             <DropdownDiv
               rotation={showDropDownColors}
               onClick={(): void => {
@@ -165,6 +258,7 @@ const Filters = (props: FiltersProps) => {
                   showDropDownLikes: false,
                 });
               }}
+              id="colors"
             >
               <Dropdown>Colores</Dropdown>
               <ArrowDiv>

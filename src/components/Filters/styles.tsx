@@ -147,3 +147,25 @@ export const BottomFiltersContainer = styled.div`
     flex-direction: column;
   }
 `;
+
+export const RangeOutput = styled.output`
+  display: flex;
+  padding: 5px;
+  width: fit-content;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: #23262f;
+`;
+
+export const RangeOutputArrow = styled.div`
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  margin: -8px 14px 10px;
+  border-radius: 12px;
+  position: relative;
+`;
