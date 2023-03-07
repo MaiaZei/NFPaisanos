@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 const Search = () => {
   return (
+    //The search bar does not filter the items
     <SearchContainer>
       <SearchInput
         type="text"

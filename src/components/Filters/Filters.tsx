@@ -207,6 +207,9 @@ const Filters = (props: FiltersProps) => {
               <p>{maxPrice} ETH</p>
             </div>
           </div>
+          {
+            //The likes dropdown does not filter
+          }
           <label
             htmlFor="likes"
             style={{
@@ -233,6 +236,9 @@ const Filters = (props: FiltersProps) => {
             id="likes"
           />
           <div>
+            {
+              //The colors dropdown does not filter
+            }
             <label
               htmlFor="colors"
               style={{
