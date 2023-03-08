@@ -11,7 +11,7 @@ import Aunctions from '../Aunctions/Aunctions';
 import Filters from '../Filters/Filters';
 import Popular from '../Popular/Popular';
 import Search from '../Search/Search';
-import { HomeContainer, HomeWrapper } from './styles';
+import { HomeContainer, HomeWrapper, Loading } from './styles';
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -75,43 +75,47 @@ const Home = () => {
         <meta name="author" content="Maia" />
       </Head>
       <HomeContainer lang="en">
-        <HomeWrapper>
-          <Popular
-            popular={[...popular]}
-            ethPrice={ethPrice.toString()}
-          />
+        {popular && ethPrice && aunctions ? (
+          <HomeWrapper>
+            <Popular
+              popular={[...popular]}
+              ethPrice={ethPrice.toString()}
+            />
 
-          <Search></Search>
-          <div style={{ display: 'flex' }}>
-            <Filters
-              maxPrice={maxPrice}
-              minPrice={minPrice}
-              priceRange={priceRange}
-              setPriceRange={setPriceRange}
-              showDropDown={showDropDown}
-              toggleDropDown={toggleDropDown}
-              onSelectOrderBy={onSelectOrderBy}
-              orderBy={orderBy}
-              filterByType={filterByType}
-              setFilterByType={setFilterByType}
-              colors={aunctions.map((auction) => {
-                return auction.attributes.color;
-              })}
-              colorsSelected={colorsSelected}
-              showDropDownColors={showDropDownColors}
-              showDropDownLikes={showDropDownLikes}
-              likesSelected={likesSelected}
-              setLikesSelected={setOrderLikes}
-            >
-              <Aunctions
-                aunctions={[...aunctions]}
-                sortBy={orderBy}
+            <Search></Search>
+            <div style={{ display: 'flex' }}>
+              <Filters
+                maxPrice={maxPrice}
+                minPrice={minPrice}
                 priceRange={priceRange}
+                setPriceRange={setPriceRange}
+                showDropDown={showDropDown}
+                toggleDropDown={toggleDropDown}
+                onSelectOrderBy={onSelectOrderBy}
+                orderBy={orderBy}
                 filterByType={filterByType}
-              />
-            </Filters>
-          </div>
-        </HomeWrapper>
+                setFilterByType={setFilterByType}
+                colors={aunctions.map((auction) => {
+                  return auction.attributes.color;
+                })}
+                colorsSelected={colorsSelected}
+                showDropDownColors={showDropDownColors}
+                showDropDownLikes={showDropDownLikes}
+                likesSelected={likesSelected}
+                setLikesSelected={setOrderLikes}
+              >
+                <Aunctions
+                  aunctions={[...aunctions]}
+                  sortBy={orderBy}
+                  priceRange={priceRange}
+                  filterByType={filterByType}
+                />
+              </Filters>
+            </div>
+          </HomeWrapper>
+        ) : (
+          <Loading> Loading...</Loading>
+        )}
       </HomeContainer>
     </>
   );
