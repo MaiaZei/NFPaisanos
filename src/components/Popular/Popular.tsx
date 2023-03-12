@@ -24,11 +24,11 @@ import {
   TopDiv,
   ViewItemButton,
 } from './styles';
-import LeftArrow from './assets/leftArrow.svg';
-import RightArrow from './assets/rightArrow.svg';
+import LeftArrow from '../../assets/leftArrow.svg';
+import RightArrow from '../../assets/rightArrow.svg';
 import CountDownTimer from '../CountdownTimer/CountdownTimer';
-import InstantPriceIcon from './assets/instantPriceIcon.svg';
-import JonTyson from './assets/jon-tyson.png';
+import InstantPriceIcon from '../../assets/instantPriceIcon.svg';
+import JonTyson from '../../assets/jon-tyson.png';
 
 type AunctionsProps = {
   popular: AunctionProps[];

@@ -33,6 +33,7 @@ export const Dropdown = styled.button`
   text-align: left;
   background-color: black;
   border: none;
+  font-family: 'Poppins', sans-serif;
 `;
 
 export const DropdownDiv = styled.div`
@@ -110,6 +111,7 @@ export const OptionContainer = styled.div`
   flex-direction: row;
   margin: 5px 10px;
   padding: 10px;
+  font-family: 'Poppins', sans-serif;
   border-radius: 5px;
   background-color: ${(props) =>
     props.selected ? '#141416' : 'none'};

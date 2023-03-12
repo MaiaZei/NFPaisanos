@@ -10,8 +10,9 @@ import {
   Line,
   Heart,
 } from './styles';
-import logo from './assets/logo.svg';
+
 import Image from 'next/image';
+import logo from '../../assets/logo.svg';
 
 const Footer = () => {
   return (

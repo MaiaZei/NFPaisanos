@@ -7,6 +7,7 @@ export const AunctionsGrid = styled.div`
   grid-gap: 2% 5%;
   margin-left: 5%;
   padding-bottom: 50px;
+  font-family: 'Poppins', sans-serif;
 
   @media (max-width: 1080px) {
     grid-template-columns: repeat(2, 1fr);
@@ -111,6 +112,7 @@ export const AuctionBottomInformationContainer = styled.div`
 export const RowDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 `;
 
 export const AuctionTitle = styled.p`

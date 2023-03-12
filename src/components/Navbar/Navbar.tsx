@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import NavItem from '../NavItem';
-import logo from './assets/logo.svg';
+import NavItem from '../NavItem/NavItem';
+import logo from '../../assets/logo.svg';
 
 const MENU_LIST = [
   { text: 'Discover', href: '/' },

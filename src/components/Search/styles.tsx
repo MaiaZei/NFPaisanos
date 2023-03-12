@@ -5,6 +5,7 @@ export const SearchInput = styled.input`
   width: 100%;
   background: black;
   height: fit-content;
+  font-family: 'Poppins', sans-serif;
   border: none;
   ::placeholder,
   ::-webkit-input-placeholder {
@@ -15,6 +16,8 @@ export const SearchInput = styled.input`
     align-items: center;
     letter-spacing: -0.01em;
     color: #e6e8ec;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
   }
   :-ms-input-placeholder {
     font-weight: 400;
@@ -24,6 +27,8 @@ export const SearchInput = styled.input`
     align-items: center;
     letter-spacing: -0.01em;
     color: #e6e8ec;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
   }
   font-weight: 400;
   font-size: 24px;

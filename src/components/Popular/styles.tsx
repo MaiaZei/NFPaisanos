@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
-export const TopDiv = styled.div`
+export const TopDiv = styled.h2`
+  letter-spacing: -0.02em;
+  color: #fcfcfd;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
   font-size: 64px;
   line-height: 64px;
   letter-spacing: -0.02em;
@@ -41,6 +46,7 @@ export const CreatorLabel = styled.p`
   font-size: 12px;
   line-height: 20px;
   color: #777e91;
+  font-family: 'Poppins', sans-serif;
 `;
 
 export const CreatorAvatar = styled.img``;
@@ -64,6 +70,7 @@ export const CreatorName = styled.p`
   font-size: 14px;
   line-height: 24px;
   color: #fcfcfd;
+  font-family: 'Poppins', sans-serif;
 `;
 
 export const BidContainer = styled.div`
@@ -81,7 +88,7 @@ export const BidContainer = styled.div`
 export const PlaceBidButton = styled.button`
   padding: 16px 24px;
   gap: 12px;
-
+  font-family: 'DM Sans', sans-serif;
   width: 100%;
   height: 48px;
 
@@ -108,6 +115,7 @@ export const ViewItemButton = styled.button`
   border: 2px solid #23262f;
   border-radius: 90px;
   cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
 `;
 
 export const NextButton = styled.button`
@@ -141,7 +149,7 @@ export const CurrentBidLabel = styled.p`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-
+  font-family: 'Poppins', sans-serif;
   text-align: center;
 
   color: #fcfcfd;
@@ -162,12 +170,14 @@ export const CurrentBidNumber = styled.div`
   line-height: 56px;
   color: #fcfcfd;
   text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
 `;
 
 export const CurrentBidUsd = styled.div`
   font-size: 24px;
   line-height: 32px;
-
+  font-family: 'Poppins', sans-serif;
   text-align: center;
 
   color: #777e91;
@@ -180,6 +190,7 @@ export const AuctionEnding = styled.div`
   text-align: center;
   color: #fcfcfd;
   margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
 `;
 
 export const CreatorNameWrapper = styled.div`

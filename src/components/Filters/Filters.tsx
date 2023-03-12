@@ -17,9 +17,8 @@ import {
   RangeOutput,
   RangeOutputArrow,
 } from './styles';
-import Fill from '../../styles/assets/Fill.svg';
-import Shape from './assets/Shape.svg';
-import { relative } from 'path';
+import Fill from '../../assets/Fill.svg';
+import Shape from '../../assets/Shape.svg';
 
 type FiltersProps = {
   priceRange: number;
@@ -128,6 +127,7 @@ const Filters = (props: FiltersProps) => {
               alignItems: 'center',
               textTransform: 'uppercase',
               color: '#B1B5C4',
+              fontFamily: 'Poppins',
             }}
           >
             Price Range

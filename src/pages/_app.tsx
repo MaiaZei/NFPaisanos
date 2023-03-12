@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import type { AppProps } from 'next/app';
 import { store } from '../app/store';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 import '../styles/globals.css';
 import Footer from '../components/Footer/Footer';
 

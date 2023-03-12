@@ -20,11 +20,11 @@ import {
   Type,
   WishlistIcon,
 } from './styles';
-import AddToWishList from './assets/addToWishlist.svg';
+import AddToWishList from '../../assets/addToWishlist.svg';
 import { motion } from 'framer-motion';
-import HighestBidIcon from './assets/HighestBidIcon.svg';
+import HighestBidIcon from '../../assets/HighestBidIcon.svg';
 
-import PlaceBidIcon from './assets/PlaceBidIcon.svg';
+import PlaceBidIcon from '../../assets/PlaceBidIcon.svg';
 
 type AunctionsProps = {
   aunctions: AunctionProps[];

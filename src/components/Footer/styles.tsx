@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Box = styled.div`
+export const Box = styled.footer`
   padding: 80px 60px;
   background: black;
 

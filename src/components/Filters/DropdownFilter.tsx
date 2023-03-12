@@ -7,7 +7,7 @@ import {
   OptionsContainer,
   Dropdown,
 } from './styles';
-import Shape from './assets/Shape.svg';
+import Shape from '../../assets/Shape.svg';
 
 const DropdownFilter = ({
   options,

@@ -6,6 +6,7 @@ export const Number = styled.div`
   text-align: center;
   letter-spacing: -0.01em;
   color: #fcfcfd;
+  font-family: 'DM Sans', sans-serif;
 `;
 
 export const NumberContainer = styled.div`
@@ -23,6 +24,7 @@ export const NumberLabel = styled.div`
   line-height: 24px;
   text-align: center;
   color: #777e91;
+  font-family: 'Poppins', sans-serif;
 `;
 
 export const TimeContent = styled.div`
